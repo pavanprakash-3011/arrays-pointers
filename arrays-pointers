@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main()
+{
+    int i,j,sum=0;
+    int arr[3][3];
+    int (*b)[3];
+    b=arr;
+    printf("Input elements in the matrix:");
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            printf("\nelement - %d,%d:",i+1,j+1);
+            scanf("%d",((b+i)+j));
+        }
+    }
+    printf("The matrix is:\n");
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            printf("%d\t",*(*((b+i)+j)));
+        }
+        printf("\n");
+    }
+    for(i=0;i<3;i++){
+        sum=sum+*(*((b+i)+i));
+    }
+    printf("sum of diagonals=%d",sum);
+    return 0;
+}
